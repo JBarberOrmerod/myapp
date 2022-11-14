@@ -42,7 +42,7 @@
 
 <Teleport to="body">
   <!-- use the modal component, pass in the prop -->
-  <modal :show="showModal" @close="showModal = false">
+  <modal :show="showModal" @close="showModal = false" @form-submit="forms">
     <template #header>
       <h3>Create a new Customer</h3>
     </template>
@@ -120,11 +120,11 @@
           placeholder="Customer Notes"
         />
     </template>
-    <template #btn>
+    <!-- <template #btn>
         <button
                 class="btn btn-outline-danger"
               >Submit</button>
-    </template>
+    </template> -->
   </modal>
 </Teleport>
 
@@ -211,6 +211,9 @@ export default {
                 .catch((errors) => {
                     console.log(errors); // Errors
                 });
+        },
+        forms(){
+          console.log("Hello")
         }
     },
     components: {
