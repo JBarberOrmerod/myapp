@@ -44,7 +44,7 @@ export default {
 </form>
 
 <template>
-  <Transition name="modal">
+  <Transition name="modal1">
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">

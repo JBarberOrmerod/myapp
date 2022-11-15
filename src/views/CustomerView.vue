@@ -156,7 +156,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="customer in customers" :key="customer.id">
+        <tr v-for="customer in customers" :key="customer.id" class='clickable-row' data-href=''>
           <td scope="row">{{ customer.customerId }}</td>
           <td>{{ customer.firstName }}</td>
           <td>{{ customer.middleInitial }}</td>
@@ -168,11 +168,44 @@
     </table>
   </div>
   <div></div>
+   <!-- Modal for customer information-->
+   
+   <button id="show-modal1" @click="showModal = true" class="btn btn-outline-danger">Customer Information</button>
+
+<Teleport to="body">
+  <!-- use the modal component, pass in the prop -->
+
+  <Modal :show="showModal" @close="showModal = false">
+    <template #header>
+      <h3>Customer Information</h3>
+    </template>
+    
+    <template #body> 
+      <div> 
+        <p>Customer ID:</p>
+        <p>First name:</p>
+        <p>Last name:</p>
+        <p>Phone Number:</p>
+        <p>Email:</p>
+        <p>Street Address:</p>
+        <p>Apartment Number:</p>
+        <p>City:</p>
+        <p>State/Province:</p>
+        <p>Zip/Postal Code:</p>
+        <p>Country:</p>
+        <p>Customer Notes:</p>
+      </div>
+        
+      
+    </template>
+    
+  </Modal>
+</Teleport>
 </template>
 
 <script>
 import axios from "axios";
-import Modal from '../components/Modal.vue'
+import Modal from '../components/Modal.vue';
 export default {
   data() {
     return {
@@ -241,7 +274,8 @@ export default {
   },
 
   components: {
-     Modal
+     Modal,
+     
   },
 };
 </script>
