@@ -8,6 +8,11 @@
   <router-view />
 </template>
 
+<script>
+//import store from './store'
+
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

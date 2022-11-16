@@ -1,7 +1,7 @@
 <script>
 export default {
   props: {
-    showing: Boolean,
+    show: Boolean,
   },
   methods: {
     onSubmit() {
@@ -15,7 +15,7 @@ export default {
   <form @submit.prevent="onSubmit">
     <Transition name="modal">
       <div
-        v-if="showing"
+        v-if="show"
         class="modal-mask"
       >
         <div class="modal-wrapper">
@@ -24,7 +24,7 @@ export default {
               <slot name="header">default header</slot>
               <button
                 class="btn"
-                @click.prevent="$emit('xout')"
+                @click.prevent="$emit('close')"
               >
                 X
               </button>
@@ -38,10 +38,10 @@ export default {
               <slot name="btn">
                 <button
                   class="btn btn-outline-danger"
-                  type="button"
-                  value="Edit"
+                  type="submit"
+                  value="Submit"
                 >
-                  Edit User
+                  Submit
                 </button>
               </slot>
             </div>
@@ -69,7 +69,7 @@ export default {
   vertical-align: middle;
 }
 .modal-container {
-  width: 500px;
+  width: 300px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
